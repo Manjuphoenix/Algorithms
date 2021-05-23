@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Solution {
-    public int[] duplicateZeros(int[] nums) {
+    public void duplicateZeros(int[] nums) {
         int dupzero = 0;
         int len = nums.length - 1;
         for (int i = 0; i < nums.length - dupzero; i++) {
@@ -20,7 +20,18 @@ class Solution {
         for (int i = 0; i < nums.length - dupzero; i++){
             System.out.println("Nums" + nums[i]);
         }
-        return nums;
+        int last = len - dupzero;
+
+        // Copy zero twice, and non zero once.
+        for (int i = last; i >= 0; i--) {
+            if (nums[i] == 0) {
+                nums[i + dupzero] = 0;
+                dupzero--;
+                nums[i + dupzero] = 0;
+            } else {
+                nums[i + dupzero] = nums[i];
+            }
+        }
     }
 }
 
@@ -33,7 +44,7 @@ class main {
         for (int i = 0; i < number; i++) {
             nums[i] = in.nextInt();
         }
-        int[] arr = s.duplicateZeros(nums);
+        s.duplicateZeros(nums);
 //        for (int i = 0; i < number; i++) {
 //            System.out.print(arr[i] + "\t");
 //        }
