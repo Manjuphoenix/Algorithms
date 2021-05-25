@@ -5,21 +5,21 @@ class Solution {
         int dupzero = 0;
         int len = nums.length - 1;
         for (int i = 0; i < nums.length - dupzero; i++) {
-            System.out.println("i" +i + "\t" + "len" + len);
-            System.out.println("Nums[i]" + nums[i]);
+//            System.out.println("i" +i + "\t" + "len" + len);
+//            System.out.println("Nums[i]" + nums[i]);
            if (nums[i] == 0){
-               dupzero++;
-               System.out.println("Dupllicate" + dupzero);
-               if (nums[len] == len-dupzero){
+//               System.out.println("Dupllicate" + dupzero);
+               if (i == len-dupzero){
                    nums[len] = 0;
                    len = len -1;
                    break;
                }
+               dupzero++;
            }
         }
-        for (int i = 0; i < nums.length - dupzero; i++){
-            System.out.println("Nums" + nums[i]);
-        }
+//        for (int i = 0; i < nums.length - dupzero; i++){
+//            System.out.println("Nums" + nums[i]);
+//        }
         int last = len - dupzero;
 
         // Copy zero twice, and non zero once.
@@ -32,6 +32,10 @@ class Solution {
                 nums[i + dupzero] = nums[i];
             }
         }
+        for (int i = 0; i < nums.length; i++){
+            System.out.println(nums[i]);
+        }
+//        return nums;
     }
 }
 
